@@ -1,0 +1,14 @@
+version: '3'
+services:
+  unbound:
+    # restart: always
+    image: mvance/unbound
+    container_name: unbound
+    command: bash -c "touch /opt/unbound/etc/unbound/root.key && /opt/unbound/sbin/unbound-anchor -a '/opt/unbound/etc/unbound/root.key' && /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf"
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    volumes:
+      - ./a-records.conf:/opt/unbound/etc/unbound/a-records.conf:ro
+      - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
+      - ./root.key:/opt/unbound/etc/unbound/root.key
