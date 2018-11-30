@@ -13,7 +13,7 @@ $ cp root.sample.key root.key
 
 ### ヒント
 * `a-records.conf` に、解決したいドメイン名と、解決先のローカルIPアドレスを記載する。
-* `unbound.conf` は、 `mvance/unbound` では自動生成していたが、一部問題があったのとパフォーマンス最適化のために自前で書いた。
+* `unbound.conf` は `mvance/unbound` では自動生成していたが、一部問題があったのとパフォーマンス最適化のために自前で書いた。
 * `docker-compose.yml` 内に `ports` `volumes` を記述している。
 
 
